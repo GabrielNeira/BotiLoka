@@ -5,9 +5,10 @@ var UserController = require('../controller/productoController');
 const bodyParser = require('body-parser');
 /* GET users listing. */
 router.get('/productos', function(req, res) {
-	console.log(UserController.getProductos);
-  res.status(200).send(UserController.getProductos);
-});
-
+  let listaProductos=UserController.getProductos();
+  console.log("ejecución después de la función")
+  console.log(listaProductos)
+  res.send(listaProductos);
+  });
 
 module.exports = router;

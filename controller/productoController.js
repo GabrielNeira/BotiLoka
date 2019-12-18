@@ -3,16 +3,21 @@
 var ProductoModel = require('../models/productos');
 
 
+function getProductos(){
+    console.log("entre a funcion")
+    let listaProductos;
+    let productos = ProductoModel.find({}, '', function (err, docs) { 
+        if(!err){
+        console.log(docs)
+        console.log("pase x aca")
+        listaProductos=docs;
+        }
+     });
+    console.log(productos)
+    console.log(listaProductos);
+   return listaProductos ;
+}
+module.exports = {
 
-function getProductos(req, res){
-    
-   let productos = ProductoModel.find();
-  
-   respuesta = {
-	  error: true,
-	  codigo: 200,
-	  mensaje: productos
-	 };
-	 console.log(respuesta);
-   return respuesta ;
+     getProductos
 }
