@@ -5,10 +5,10 @@ var ProductoModel = require('../models/productos');
 
 function getProductos(){
     console.log("entre a funcion")
-    let listaProductos;
+    let listaProductos= [];
     let productos = ProductoModel.find({}, '', function (err, docs) {
         if(!err){
-        listaProductos=docs;
+            docs.forEach(element => listaProductos.push(element));
         }
      });
     console.log("Esta es la lista de productos");
