@@ -72,9 +72,6 @@ let baseDeDatos = [
         precio: 0.6,
         imagen: 'https://source.unsplash.com/random/500x500/?burrs&sig=4'
     }
-
-
-
 ]
 let $items = document.querySelector('#items');
 let carrito = [];
