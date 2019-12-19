@@ -3,11 +3,13 @@
 var ProductoModel = require('../models/productos');
 
 
-function getProductos(){
+async function getProductos(){
     console.log("entre a funcion")
     let listaProductos= [];
-    let productos = ProductoModel.find({}, '', function (err, docs) {
+    let productos = await ProductoModel.find({}, '', function (err, docs) {
+        console.log("antes del if"+docs);
         if(!err){
+            console.log(docs);
             docs.forEach(element => listaProductos.push(element));
         }
      });

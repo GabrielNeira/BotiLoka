@@ -1,86 +1,26 @@
-// Variables
-let baseDeDatos = [
-    {
-        id: 1,
-        nombre: 'Patata',
-        precio: 1,
-        imagen: 'https://source.unsplash.com/random/500x500/?potato&sig=1'
-    },
-    {
-        id: 2,
-        nombre: 'Cebolla',
-        precio: 1.2,
-        imagen: 'https://source.unsplash.com/random/500x500/?onion&sig=2'
-    },
-    {
-        id: 3,
-        nombre: 'Calabacin',
-        precio: 2.1,
-        imagen: 'https://source.unsplash.com/random/500x500/?zucchini&sig=3'
-    },
-    {
-        id: 4,
-        nombre: 'Fresas',
-        precio: 0.6,
-        imagen: 'https://source.unsplash.com/random/500x500/?burrs&sig=4'
-    },
-    {
-        id: 5,
-        nombre: 'Patata',
-        precio: 1,
-        imagen: 'https://source.unsplash.com/random/500x500/?potato&sig=6'
-    },
-    {
-        id: 6,
-        nombre: 'Cebolla',
-        precio: 1.2,
-        imagen: 'https://source.unsplash.com/random/500x500/?onion&sig=2'
-    },
-    {
-        id: 7,
-        nombre: 'Calabacin',
-        precio: 2.1,
-        imagen: 'https://source.unsplash.com/random/500x500/?zucchini&sig=3'
-    },
-    {
-        id: 8,
-        nombre: 'Fresas',
-        precio: 0.6,
-        imagen: 'https://source.unsplash.com/random/500x500/?burrs&sig=4'
-    },
-    {
-        id: 9,
-        nombre: 'Patata',
-        precio: 1,
-        imagen: 'https://source.unsplash.com/random/500x500/?potato&sig=1'
-    },
-    {
-        id: 10,
-        nombre: 'Cebolla',
-        precio: 1.2,
-        imagen: 'https://source.unsplash.com/random/500x500/?onion&sig=2'
-    },
-    {
-        id: 11,
-        nombre: 'Calabacin',
-        precio: 2.1,
-        imagen: 'https://source.unsplash.com/random/500x500/?zucchini&sig=3'
-    },
-    {
-        id: 12,
-        nombre: 'Fresas',
-        precio: 0.6,
-        imagen: 'https://source.unsplash.com/random/500x500/?burrs&sig=4'
-    }
-]
+
+// let bdd=()=>{
+// $.ajax({
+//   url: "api/productos",
+//   cache: false,
+//   type: "get",
+//   dataType: "json",
+//   success: function(data){
+//     console.log(JSON.stringify(data));
+//   }
+// });
+
+
+// }
+
 let $items = document.querySelector('#items');
 let carrito = [];
 let total = 0;
 let $carrito = document.querySelector('#carrito');
 let $total = document.querySelector('#total');
 // Funciones
-function renderItems () {
-    for (let info of baseDeDatos) {
+function renderItems (datos) {
+    for (let info of datos) {
         // Estructura
         let miNodo = document.createElement('div');
         miNodo.classList.add('card', 'col-sm-4');
@@ -187,4 +127,19 @@ function calcularTotal () {
 // Eventos
 
 // Inicio
-renderItems();
+//renderItems();
+
+
+  $( document ).ready(function() {
+    $.ajax({
+        url: "api/productos",
+        async: false,
+        cache: false,
+        type: "get",
+        dataType: "json",
+        success: function(data){
+        renderItems(data);
+          console.log(JSON.stringify(data));
+        }
+      });
+  });
